@@ -24,4 +24,14 @@ export class CustomerService {
    
   }
 
+  addCustomer(customer: ICustomer) {
+    customer.Id = this.db.createId();
+    customer.CreatedOn = Date.now();
+
+    return this.db
+      .collection('customers')
+      .doc(customer.Id)
+      .set(customer);
+  }
+
 }

@@ -30,8 +30,17 @@ export class CrudService {
   }
   addItem(item): Observable<any> {
     item._id = Math.round(Math.random() * 10000000000).toString();
-    this.items.unshift(item);
-    return of(this.items.slice()).pipe(delay(1000));
+    this.customerService.addCustomer(item).then(response => {
+      
+    })
+    .finally(() => {
+      return this.customerService.getNote('bJELWp4NbNj9Ly3BrTGG');
+    
+    });
+    return this.customerService.getNote('bJELWp4NbNj9Ly3BrTGG');
+    
+    //this.items.unshift(item);
+    //return of(this.items.slice()).pipe(delay(1000));
   }
   updateItem(id, item) {
     this.items = this.items.map(i => {
