@@ -1,0 +1,86 @@
+<div class="m-3 flex flex-col md:flex-row justify-between " [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+
+  <div class="info-card primary flex-grow">
+    <div class="description">Crud table is a part of custom CRUD module. Module name: CrudsModule</div>
+  </div>
+  <div class="md:w-[100px] lg:w-1/6 xl:w-2/6"></div>
+  <button mat-raised-button class="m-2" color="primary" (click)="openPopUp({}, true)">{{"ADD" | translate }}
+    Customer</button>
+</div>
+<div *ngIf="dataSource"> {{dataSource.length}}</div>
+<mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+  <mat-card-content class="p-0">
+    
+    <mat-table [dataSource]="dataSource" matSort *ngIf="dataSource != undefined">
+       <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="id"> {{row._id}} </mat-cell>
+      </ng-container> 
+
+      <ng-container matColumnDef="FirstName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="FirstName"> {{row.FirstName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Gender">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Gender </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Gender"> {{row.Gender == undefined ? "NA" : row.Gender}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="PhoneNumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> PhoneNumber </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="PhoneNumber"> {{row.PhoneNumber == undefined ? "NA" : row.PhoneNumber}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Dob">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Dob </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Dob"> {{row.Dob == undefined ? "NA" : row.Dob}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Country">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Country"> {{row.Country == undefined ? "NA" : row.Country}} </mat-cell>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Age </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="age"> {{row.age}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="balance">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Balance </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color" data-label="color"> {{row.balance}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="company">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Company </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color" data-label="color"> {{row.company}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color" data-label="color">
+          <mat-chip mat-sm-chip [color]="'primary'" [selected]="row.isActive">{{row.isActive ? 'active' : 'inactive'}}
+          </mat-chip>
+        </mat-cell>
+      </ng-container> -->
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button mat-sm-button color="primary" class="mr-4 rtl:ml-4" (click)="openPopUp(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button mat-sm-button color="warn" (click)="deleteItem(row)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+
+  </mat-card-content>
+</mat-card>
