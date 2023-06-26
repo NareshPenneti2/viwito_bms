@@ -5,10 +5,10 @@
     <div class="flex flex-wrap flex-col md:flex-row">
       <div class="w-full md:w-1/2 pr-16">
         <mat-form-field class="full-width">
-          <input matInput name="username" [formControl]="itemForm.controls['name']" placeholder="Name">
+          <input matInput name="FirstName" [formControl]="itemForm.controls['FirstName']" placeholder="FirstName">
         </mat-form-field>
       </div>
-
+<!-- 
       <div class="w-full md:w-1/2 pr-16">
         <mat-form-field class="full-width">
           <input matInput type="number" name="age" [formControl]="itemForm.controls['age']" placeholder="Age">
@@ -19,31 +19,31 @@
         <mat-form-field class="full-width">
           <input matInput type="email" name="email" [formControl]="itemForm.controls['email']" placeholder="Email">
         </mat-form-field>
-      </div>
+      </div> -->
 
       <div class="w-full md:w-1/2 pr-16">
         <mat-form-field class="full-width">
-          <input matInput name="company" [formControl]="itemForm.controls['company']" placeholder="Company">
+          <input matInput name="Gender" [formControl]="itemForm.controls['Gender']" placeholder="Gender">
         </mat-form-field>
       </div>
       <div class="w-full md:w-1/2 pr-16">
         <mat-form-field class="full-width">
-          <input matInput name="phone" [formControl]="itemForm.controls['phone']" placeholder="Phone">
+          <input matInput name="PhoneNumber" [formControl]="itemForm.controls['PhoneNumber']" placeholder="PhoneNumber">
         </mat-form-field>
       </div>
       <div class="w-full md:w-1/2 pr-16">
         <mat-form-field class="full-width">
-          <input matInput name="address" [formControl]="itemForm.controls['address']" placeholder="address">
+          <input matInput type="date" name="Dob" [formControl]="itemForm.controls['Dob']" placeholder="Dob">
         </mat-form-field>
       </div>
       <div class="w-full md:w-1/2 pr-16">
         <mat-form-field class="full-width">
-          <input matInput name="balance" [formControl]="itemForm.controls['balance']" placeholder="Balance">
+          <input matInput name="Country" [formControl]="itemForm.controls['Country']" placeholder="Country">
         </mat-form-field>
       </div>
-      <div class="w-full md:w-1/2 !pt-4 pr-16">
+      <!-- <div class="w-full md:w-1/2 !pt-4 pr-16">
         <mat-slide-toggle [formControl]="itemForm.controls['isActive']">Active Customer</mat-slide-toggle>
-      </div>
+      </div> -->
 
       <div class="flex w-full mt-4">
         <button mat-raised-button color="primary" [disabled]="itemForm.invalid">{{"SAVE" | translate }}</button>

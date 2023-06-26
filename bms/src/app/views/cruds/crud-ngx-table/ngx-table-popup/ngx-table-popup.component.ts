@@ -19,7 +19,15 @@ export class NgxTablePopupComponent implements OnInit {
   }
   buildItemForm(item) {
     this.itemForm = this.fb.group({
-      name: [item.name || '', Validators.required],
+      FirstName: [item.FirstName || '', Validators.required],
+      Gender: [item.Gender || ''],
+      PhoneNumber: [item.PhoneNumber || ''],
+      Dob: [item.Dob || ''],
+      Country: [item.Country || ''],
+      //isActive: [item.isActive || false]
+
+      /*
+      
       age: [item.age || ''],
       email: [item.email || ''],
       company: [item.company || ''],
@@ -27,10 +35,12 @@ export class NgxTablePopupComponent implements OnInit {
       address: [item.address || ''],
       balance: [item.balance || ''],
       isActive: [item.isActive || false]
+      */
     })
   }
 
   submit() {
+    console.log('This is coming here!');
     this.dialogRef.close(this.itemForm.value)
   }
 }
